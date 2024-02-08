@@ -8,10 +8,10 @@ interface Props {
 }
 const PostAlert: React.FC<Props> = ({post}) => {
   return (
-    <div className={"alert alert-primary"}>
+    <div className={"alert alert-primary w-100"}>
       <p>{format(post.createdAt, 'dd.MM.yyyy HH:mm')}</p>
-      <h6>{post.description}</h6>
-      <Link to={"/posts/" + post.id} className={"btn btn-primary"}>Read more</Link>
+      <h6 className={"text-break"}>{post.title}</h6>
+      <Link  className={"btn btn-primary"} to={'/posts/' + post.id}>Read more</Link>
     </div>
   );
 };

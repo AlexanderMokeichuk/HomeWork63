@@ -2,7 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components /Header/Header";
 import {Route, Routes} from "react-router-dom";
 import Posts from "./container/Posts/Posts";
-import Add from "./container/Add/Add";
+import NewPost from "./container/NewPost/NewPost";
+import Post from "./container/Post/Post";
 
 function App() {
 
@@ -12,9 +13,11 @@ function App() {
       <main className={"container mt-5"}>
         <Routes>
           <Route path={"/"} element={(<Posts/>)}/>
-          <Route path={"/new-post"} element={(<Add/>)}/>
+          <Route path={"/new-post"} element={(<NewPost/>)}/>
           <Route path={"/about"} element={("About")}/>
           <Route path={"/contacts"} element={("Contacts")}/>
+          <Route path={"/posts/:id"} element={(<Post/>)}/>
+          <Route path={"/posts/:id/edit"} element={(<NewPost/>)}/>
           <Route path={"*"} element={"Not found"}/>
         </Routes>
       </main>

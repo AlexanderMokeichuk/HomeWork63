@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {ApiPost} from "../../type";
-import axios from "axios";
 import axiosApi from "../../axiosApi";
 import Spinner from "../../components /Spinner/Spinner";
+import {useNavigate, useParams} from "react-router-dom";
 
 const defaultState: ApiPost = {
   createdAt: "",
@@ -10,9 +10,25 @@ const defaultState: ApiPost = {
   description: "",
 };
 
-const Add: React.FC = () => {
+const NewPost: React.FC = () => {
+  const navigate = useNavigate();
+  const params = useParams();
   const [loading, setLoading] = useState(false);
   const [postBody, setPostBody] = useState<ApiPost>(defaultState);
+
+  const fetchPost = useCallback(async () => {
+    setLoading(true);
+    const {data: response} = await axiosApi.get<ApiPost | null>("/posts/" + params.id + ".json");
+
+    if(response) setPostBody(response);
+    setLoading(false);
+  }, [params.id]);
+
+  useEffect(() => {
+   if (params.id) {
+     void fetchPost();
+   }
+  }, [fetchPost, params.id]);
 
   const changeForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setPostBody(prevState => ({
@@ -35,7 +51,12 @@ const Add: React.FC = () => {
     };
 
     try {
-      await axiosApi.post("/posts.json", post);
+     if(params.id) {
+       await axiosApi.patch("/posts/" + params.id + ".json", {title:postBody.title, description: postBody.description});
+       navigate(-1);
+     } else {
+       await axiosApi.post("/posts.json", post);
+     }
       setPostBody(defaultState);
     } finally {
       setLoading(false);
@@ -82,4 +103,4 @@ const Add: React.FC = () => {
   );
 };
 
-export default Add;
+export default NewPost;
