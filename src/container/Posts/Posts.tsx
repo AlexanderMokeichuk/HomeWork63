@@ -6,14 +6,13 @@ import PostAlert from "../../components /PostAlert/PostAlert";
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
 
-  const fetchPost = useCallback( async () => {
+  const fetchPost = useCallback(async () => {
     const {data: response} = await axiosApi.get<ApiPosts | null>("/posts.json");
-
-    if (response) {
+    if (response){
       setPosts(Object.keys(response).map(id => ({
         ...response[id],
         id,
-      })))
+      })).reverse());
     } else {
       setPosts([]);
     }

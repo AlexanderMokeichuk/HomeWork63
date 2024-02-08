@@ -8,6 +8,6 @@ export interface Post extends ApiPost {
   id: string,
 }
 
-export interface ApiPosts{
+export interface ApiPosts {
   [id: string]: ApiPost,
 }
