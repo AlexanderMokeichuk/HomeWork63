@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {ApiPost, ApiPosts} from "../../type";
+import {ApiPost} from "../../type";
 import axiosApi from "../../axiosApi";
 import {format} from "date-fns";
 import Spinner from "../../components /Spinner/Spinner";

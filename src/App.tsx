@@ -4,6 +4,8 @@ import {Route, Routes} from "react-router-dom";
 import Posts from "./container/Posts/Posts";
 import NewPost from "./container/NewPost/NewPost";
 import Post from "./container/Post/Post";
+import About from "./container/About/About";
+import Contacts from "./container/Contacts/Contacts";
 
 function App() {
 
@@ -14,8 +16,8 @@ function App() {
         <Routes>
           <Route path={"/"} element={(<Posts/>)}/>
           <Route path={"/new-post"} element={(<NewPost/>)}/>
-          <Route path={"/about"} element={("About")}/>
-          <Route path={"/contacts"} element={("Contacts")}/>
+          <Route path={"/about"} element={(<About/>)}/>
+          <Route path={"/contacts"} element={(<Contacts/> )}/>
           <Route path={"/posts/:id"} element={(<Post/>)}/>
           <Route path={"/posts/:id/edit"} element={(<NewPost/>)}/>
           <Route path={"*"} element={"Not found"}/>

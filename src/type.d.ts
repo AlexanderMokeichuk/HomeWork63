@@ -11,3 +11,11 @@ export interface Post extends ApiPost {
 export interface ApiPosts {
   [id: string]: ApiPost,
 }
+
+export interface About {
+  name: string
+}
+
+export interface Contacts {
+  phone: string,
+}
