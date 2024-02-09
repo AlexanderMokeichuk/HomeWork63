@@ -27,6 +27,8 @@ const NewPost: React.FC = () => {
   useEffect(() => {
    if (params.id) {
      void fetchPost();
+   } else {
+     setPostBody(defaultState);
    }
   }, [fetchPost, params.id]);
 
