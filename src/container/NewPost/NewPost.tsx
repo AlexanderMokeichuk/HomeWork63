@@ -53,7 +53,7 @@ const NewPost: React.FC = () => {
     try {
      if(params.id) {
        await axiosApi.patch("/posts/" + params.id + ".json", {title:postBody.title, description: postBody.description});
-       navigate(-1);
+       navigate("/");
      } else {
        await axiosApi.post("/posts.json", post);
      }

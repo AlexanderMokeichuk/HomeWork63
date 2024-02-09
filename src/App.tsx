@@ -6,15 +6,16 @@ import NewPost from "./container/NewPost/NewPost";
 import Post from "./container/Post/Post";
 import About from "./container/About/About";
 import Contacts from "./container/Contacts/Contacts";
+import Footer from "./components /Footer/Footer";
 
 function App() {
 
   return (
-    <>
+    <div className={"vh-100 d-flex flex-column bg-secondary"}>
       <Header/>
       <main className={"container mt-5"}>
         <Routes>
-          <Route path={"/"} element={(<Posts/>)}/>
+          <Route path={"/"} element={(<Posts/>)}></Route>
           <Route path={"/new-post"} element={(<NewPost/>)}/>
           <Route path={"/about"} element={(<About/>)}/>
           <Route path={"/contacts"} element={(<Contacts/> )}/>
@@ -23,7 +24,8 @@ function App() {
           <Route path={"*"} element={"Not found"}/>
         </Routes>
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }
 

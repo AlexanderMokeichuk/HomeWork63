@@ -18,9 +18,7 @@ const Contacts: React.FC = () => {
   let myContacts = <Spinner/>;
   if (contacts) {
     myContacts = (
-      <div>
-        {contacts.phone}
-      </div>
+      <h3 className={"text-white"}>My contacts: {contacts.phone}</h3>
     );
   }
 

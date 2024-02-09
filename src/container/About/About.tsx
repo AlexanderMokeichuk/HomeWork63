@@ -18,9 +18,7 @@ const About: React.FC = () => {
   let aboutText = <Spinner/>;
   if (about) {
     aboutText = (
-      <div>
-        {about.name}
-      </div>
+      <h3 className={"text-white"}>This is {about.name}</h3>
     );
   }
 

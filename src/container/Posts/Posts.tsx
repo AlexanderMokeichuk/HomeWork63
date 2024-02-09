@@ -37,7 +37,7 @@ const Posts: React.FC = () => {
   if(loading) alertsPost = <Spinner/>;
 
   return (
-    <div className={"d-flex flex-column justify-content-center align-items-center"}>
+    <div className={"d-flex flex-column align-items-center"}>
       {alertsPost}
     </div>
   );

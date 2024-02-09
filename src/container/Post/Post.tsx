@@ -34,17 +34,17 @@ const Post: React.FC = () => {
 
   if(!loading && post) {
     postAlert = (
-      <div className={"card bg-info col-6 p-3"}>
-        <div className={"card-header"}>
-          <p>{format(post.createdAt, "dd.MM.yyyy HH:mm")}</p>
-          <h5>{post.title}</h5>
+      <div className={"alert alert-secondary col-6 p-3"}>
+        <div>
+          <p className={"text-secondary"} style={{fontSize: 12}}>Created on: {format(post.createdAt, "dd.MM.yyyy HH:mm")}</p>
+          <h5 className={"text-break"}>{post.title}</h5>
         </div>
         <div className={"text-break"}>
           {post.description}
         </div>
-        <div className={"d-flex justify-content-end gap-2 mt-2"}>
+        <div className={"d-flex justify-content-end gap-2 mt-4"}>
           <button type={"button"} onClick={deletePost} className={"btn btn-danger"}>Delete</button>
-          <Link className={"btn btn-primary"} to={"/posts/" + params.id + "/edit"}>Edit</Link>
+          <Link className={"btn btn-secondary px-3"} to={"/posts/" + params.id + "/edit"}>Edit</Link>
         </div>
       </div>
     );

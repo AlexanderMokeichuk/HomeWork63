@@ -3,8 +3,8 @@ import {NavLink} from "react-router-dom";
 
 const NavBar: React.FC = () => {
   return (
-    <nav className={"navbar"}>
-      <ul className="navbar-nav d-flex flex-row gap-2">
+    <nav className={"navbar bg-dark"} data-bs-theme="dark">
+      <ul className="navbar-nav  d-flex flex-row gap-2">
         <li className="nav-item">
           <NavLink className="nav-link" to={"/"}>Home</NavLink>
         </li>
